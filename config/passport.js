@@ -7,6 +7,7 @@ var GitHubStrategy   = require('passport-github2').Strategy;
 
 var User       = require('../models/user');
 var configAuth = require('./auth');
+var funct = require('../functions.js');
 
 //var configDB = require('./database.js');
 //mongoose.connect(configDB.url);
@@ -406,7 +407,5 @@ function(req, token, refreshToken, profile, done) {
     });
 
 }));
-
-
 
 };

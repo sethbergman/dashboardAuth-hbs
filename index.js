@@ -19,6 +19,7 @@ mongoose.connect(configDB.url);
 
 var app = express();
 
+/*
 //===============PASSPORT=================
 
 // Passport session setup.
@@ -77,6 +78,7 @@ passport.use('local-signup', new LocalStrategy(
     });
   }
 ));
+*/
 
 // Simple route middleware to ensure user is authenticated.
 function ensureAuthenticated(req, res, next) {
