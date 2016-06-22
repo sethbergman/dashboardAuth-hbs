@@ -8,7 +8,7 @@ var TwitterStrategy  = require('passport-twitter').Strategy;
 var GoogleStrategy   = require('passport-google-oauth').OAuth2Strategy;
 var GitHubStrategy   = require('passport-github2').Strategy;
 
-var config = require('./config.js');
+// var config = require('./config.js');
 var funct = require('./functions.js');
 
 var configAuth = require('./config/auth');
