@@ -14,6 +14,7 @@ var funct = require('../functions.js');
 
 module.exports = function(passport) {
 
+
 passport.serializeUser(function(user, done) {
   console.log("serializing " + user.username);
   done(null, user);
@@ -23,6 +24,8 @@ passport.deserializeUser(function(obj, done) {
   console.log("deserializing " + obj);
   done(null, obj);
 });
+
+
 
 // Use the LocalStrategy within Passport to login users.
 passport.use('local-signin', new LocalStrategy(
