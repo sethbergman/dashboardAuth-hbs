@@ -1,5 +1,7 @@
 # dashboardAuth-hbs
-
+### Dashboard with user authentication - built with Express and Handlebars
+********************************
+[ ![Codeship Status for sethbergman/dashboardAuth-hbs](https://codeship.com/projects/3a8c3820-15cc-0134-a125-667ff3898a5e/status?branch=master)](https://codeship.com/projects/158178)
 Clone
 ```
 git clone https://github.com/sethbergman/dashboardAuth-hbs.git && cd dashboardAuth-hbs
