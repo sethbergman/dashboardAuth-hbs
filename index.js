@@ -1,13 +1,21 @@
-var express = require('express'),
-    exphbs  = require('express3-handlebars'),
-    passport = require('passport'),
-    LocalStrategy = require('passport-local'),
-    TwitterStrategy = require('passport-twitter'),
-    GoolgeStrategy = require('passport-google'),
-    FacebookStrategy = require('passport-facebook');
+var express = require('express');
+var exphbs  = require('express3-handlebars');
+var passport = require('passport');
+var mongoose = require('mongoose');
+var LocalStrategy    = require('passport-local').Strategy;
+var FacebookStrategy = require('passport-facebook').Strategy;
+var TwitterStrategy  = require('passport-twitter').Strategy;
+var GoogleStrategy   = require('passport-google-oauth').OAuth2Strategy;
+var GitHubStrategy   = require('passport-github2').Strategy;
 
-var config = require('./config.js'), //config file contains all tokens and other private info
-    funct = require('./functions.js');
+var config = require('./config.js');
+var funct = require('./functions.js');
+
+var configAuth = require('./config/auth');
+require('./config/passport')(passport);
+
+var configDB = require('./config/database.js');
+mongoose.connect(configDB.url);
 
 var app = express();
 
@@ -85,7 +93,7 @@ app.use(express.logger());
 app.use(express.cookieParser());
 app.use(express.bodyParser());
 app.use(express.methodOverride());
-app.use(express.session({ secret: 'supernova' }));
+app.use(express.session({ secret: 'myWifeIsHOTTT' }));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -147,6 +155,51 @@ app.get('/logout', function(req, res){
   res.redirect('/');
   req.session.notice = "You have successfully been logged out " + name + "!";
 });
+
+app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
+
+// handle the callback after facebook has authenticated the user
+app.get('/auth/facebook/callback',
+    passport.authenticate('facebook', {
+        successRedirect : '/dashboard',
+        failureRedirect : '/'
+}));
+
+// twitter --------------------------------
+
+// send to twitter to do the authentication
+app.get('/auth/twitter', passport.authenticate('twitter', { scope : 'email' }));
+
+// handle the callback after twitter has authenticated the user
+app.get('/auth/twitter/callback',
+    passport.authenticate('twitter', {
+        successRedirect : '/dashboard',
+        failureRedirect : '/'
+}));
+
+
+// google ---------------------------------
+
+// send to google to do the authentication
+app.get('/auth/google', passport.authenticate('google', { scope : 'email' }));
+
+// the callback after google has authenticated the user
+app.get('/auth/google/callback',
+    passport.authenticate('google', {
+        successRedirect : '/dashboard',
+        failureRedirect : '/'
+}));
+
+// github -----------------------------------
+
+app.get('/auth/github',
+    passport.authenticate('github'));
+
+app.get('/auth/github/callback',
+    passport.authenticate('github', {
+        successRedirect : '/dashboard',
+        failureRedirect : '/'
+}));
 
 //displays our homepage
 app.get('/', function(req, res){
