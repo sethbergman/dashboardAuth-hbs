@@ -1,5 +1,5 @@
 {
-  "name": "dashboard-auth",
+  "name": "dashboardAuth-hbs",
   "version": "1.0.0",
   "description": "User authentication with Express and Passport",
   "main": "index.js",
