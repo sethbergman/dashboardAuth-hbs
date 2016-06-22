@@ -1,7 +1,7 @@
 # dashboardAuth-hbs
 ### Dashboard with user authentication - built with Express and Handlebars
 ********************************
-[ ![Codeship Status for sethbergman/dashboardAuth-hbs](https://codeship.com/projects/3a8c3820-15cc-0134-a125-667ff3898a5e/status?branch=master)](https://codeship.com/projects/158178)
+[ ![Codeship Status for sethbergman/dashboardAuth-hbs](https://codeship.com/projects/66047110-1a59-0134-0759-3217b0339886/status?branch=master)](https://codeship.com/projects/159315)
 
 ### Clone
 ```
@@ -20,20 +20,26 @@ module.exports = {
     'facebookAuth' : {
         'clientID'        : '1112223334445557777777',
         'clientSecret'    : '111abc222def333ghi444jkl555mnopqr7777777',
-        'callbackURL'     : 'http://dash3.stackriot.com/auth/facebook/callback'
+        'callbackURL'     : 'http://dashboard-hbs.stackriot.com/auth/facebook/callback'
     },
 
     'twitterAuth' : {
         'consumerKey'        : '1112223334445557777777',
         'consumerSecret'     : '111abc222def333ghi444jkl555mnopqr7777777',
-        'callbackURL'        : 'http://dash3.stackriot.com/auth/twitter/callback'
+        'callbackURL'        : 'http://dashboard-hbs.stackriot.com/auth/twitter/callback'
     },
 
     'googleAuth' : {
         'clientID'         : '123-1112223334445557777777.apps.googleusercontent.com',
         'clientSecret'     : '111abc222def333ghi444jkl555mnopqr7777777',
-        'callbackURL'      : 'http://dash3.stackriot.com/auth/google/callback'
-    }
+        'callbackURL'      : 'http://dashboard-hbs.stackriot.com/auth/google/callback'
+    },
+
+    'githubAuth' : {
+        'clientID'        : '1112223334445557777777',
+        'clientSecret'    : '111abc222def333ghi444jkl555mnopqr7777777',
+        'callbackURL'     : 'http://dashboard-hbs.stackriot.com/auth/github/callback'
+    },
 
 };
 ```
