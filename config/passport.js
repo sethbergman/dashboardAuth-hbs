@@ -1,3 +1,4 @@
+
 var LocalStrategy    = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
 var TwitterStrategy  = require('passport-twitter').Strategy;
@@ -6,6 +7,9 @@ var GitHubStrategy   = require('passport-github2').Strategy;
 
 var User       = require('../models/user');
 var configAuth = require('./auth');
+
+//var configDB = require('./database.js');
+//mongoose.connect(configDB.url);
 
 module.exports = function(passport) {
 
@@ -69,7 +73,7 @@ passport.use('local-signup', new LocalStrategy(
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
   req.session.error = 'Please sign in!';
-  res.redirect('/signin');
+  res.redirect('/login');
 }
 
 /*
