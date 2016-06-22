@@ -2,15 +2,16 @@
 ### Dashboard with user authentication - built with Express and Handlebars
 ********************************
 [ ![Codeship Status for sethbergman/dashboardAuth-hbs](https://codeship.com/projects/3a8c3820-15cc-0134-a125-667ff3898a5e/status?branch=master)](https://codeship.com/projects/158178)
-Clone
+
+### Clone
 ```
 git clone https://github.com/sethbergman/dashboardAuth-hbs.git && cd dashboardAuth-hbs
 ```
-Install dependencies:
+### Install dependencies:
 ```
 npm install
 ```
-Setup configuration scripts:
+### Setup configuration scripts:
 * Create a file in the `config` folder called `auth.js`.
 * It should have something like the following in the file:
 ```
@@ -46,8 +47,8 @@ module.exports = {
 
 };
 ```
-Start the app!
+### Start the app!
 ```
 npm start
 ```
-Visit [http://0.0.0.0:5000](http://0.0.0.0:5000) in your browser.
+### Visit [http://0.0.0.0:5000](http://0.0.0.0:5000) in your browser.

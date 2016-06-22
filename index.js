@@ -193,6 +193,6 @@ app.get('/register', function(req, res) {
   res.render('login-register');
 });
 
-var server = app.listen(process.env.PORT | 5000, function () {
+var server = app.listen(process.env.PORT || 5000, function () {
   console.log('Server running at http://0.0.0.0:' + server.address().port)
 })
