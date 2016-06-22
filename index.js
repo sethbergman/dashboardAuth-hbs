@@ -88,7 +88,6 @@ function ensureAuthenticated(req, res, next) {
 
 //===============EXPRESS=================
 
-// Configure Express
 app.use(express.logger());
 app.use(express.cookieParser());
 app.use(express.bodyParser());
