@@ -5,19 +5,17 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect"
+    "start": "node index.js"
   },
   "author": "Seth Bergman",
   "license": "MIT",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "bcryptjs": "^0.7.12",
-    "express": "4.0.0",
+    "express": "^3.5.0",
     "express3-handlebars": "^0.5.0",
     "mongoose": "^4.5.1",
-    "orchestrate": "0.5.0",
+    "orchestrate": "^0.1.2",
     "passport": "^0.2.0",
     "passport-facebook": "^1.0.3",
     "passport-github2": "^0.1.10",
@@ -25,8 +23,6 @@
     "passport-google": "^0.3.0",
     "passport-local": "^1.0.0",
     "passport-twitter": "^1.0.2",
-    "q": "^1.0.1",
-    "snyk": "1.16.0"
-  },
-  "snyk": true
+    "q": "^1.0.1"
+  }
 }
