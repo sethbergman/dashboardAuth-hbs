@@ -1,5 +1,7 @@
 # dashboardAuth-hbs
 ### Dashboard with user authentication - built with Express and Handlebars
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/sethbergman/dashboardAuth-hbs.svg)](https://greenkeeper.io/)
 ********************************
 [ ![Codeship Status for sethbergman/dashboardAuth-hbs](https://codeship.com/projects/66047110-1a59-0134-0759-3217b0339886/status?branch=master)](https://codeship.com/projects/159315)
 
