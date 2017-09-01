@@ -22,25 +22,25 @@ module.exports = {
     'facebookAuth' : {
         'clientID'        : '1112223334445557777777',
         'clientSecret'    : '111abc222def333ghi444jkl555mnopqr7777777',
-        'callbackURL'     : 'http://dashboard-hbs.stackriot.com/auth/facebook/callback'
+        'callbackURL'     : '//dashboard-hbs.stackriot.com/auth/facebook/callback'
     },
 
     'twitterAuth' : {
         'consumerKey'        : '1112223334445557777777',
         'consumerSecret'     : '111abc222def333ghi444jkl555mnopqr7777777',
-        'callbackURL'        : 'http://dashboard-hbs.stackriot.com/auth/twitter/callback'
+        'callbackURL'        : '//dashboard-hbs.stackriot.com/auth/twitter/callback'
     },
 
     'googleAuth' : {
         'clientID'         : '123-1112223334445557777777.apps.googleusercontent.com',
         'clientSecret'     : '111abc222def333ghi444jkl555mnopqr7777777',
-        'callbackURL'      : 'http://dashboard-hbs.stackriot.com/auth/google/callback'
+        'callbackURL'      : '//dashboard-hbs.stackriot.com/auth/google/callback'
     },
 
     'githubAuth' : {
         'clientID'        : '1112223334445557777777',
         'clientSecret'    : '111abc222def333ghi444jkl555mnopqr7777777',
-        'callbackURL'     : 'http://dashboard-hbs.stackriot.com/auth/github/callback'
+        'callbackURL'     : '//dashboard-hbs.stackriot.com/auth/github/callback'
     },
 
 };
@@ -59,4 +59,4 @@ module.exports = {
 ```
 npm start
 ```
-### Visit [http://0.0.0.0:5000](http://0.0.0.0:5000) in your browser.
+### Visit [//0.0.0.0:5000](//0.0.0.0:5000) in your browser.
