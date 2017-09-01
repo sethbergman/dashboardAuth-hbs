@@ -1,16 +1,16 @@
+const mongoose = require('mongoose');
+const LocalStrategy    = require('passport-local').Strategy;
+const FacebookStrategy = require('passport-facebook').Strategy;
+const TwitterStrategy  = require('passport-twitter').Strategy;
+const GoogleStrategy   = require('passport-google-oauth').OAuth2Strategy;
+const GitHubStrategy   = require('passport-github2').Strategy;
 
-var LocalStrategy    = require('passport-local').Strategy;
-var FacebookStrategy = require('passport-facebook').Strategy;
-var TwitterStrategy  = require('passport-twitter').Strategy;
-var GoogleStrategy   = require('passport-google-oauth').OAuth2Strategy;
-var GitHubStrategy   = require('passport-github2').Strategy;
+const User       = require('../models/user');
+const configAuth = require('./auth');
+const funct = require('../functions.js');
 
-var User       = require('../models/user');
-var configAuth = require('./auth');
-var funct = require('../functions.js');
-
-//var configDB = require('./database.js');
-//mongoose.connect(configDB.url);
+const configDB = require('./database.js');
+mongoose.connect(configDB.url);
 
 module.exports = function(passport) {
 
@@ -80,11 +80,11 @@ function ensureAuthenticated(req, res, next) {
   res.redirect('/login');
 }
 
-/*
+
 passport.use(new GitHubStrategy({
     clientID: '4e723bed0302f6ebc195',
     clientSecret: 'bfe3ca4fbd099b1b854bd34e39bbe0aa5f9bdc69',
-    callbackURL: "http://dashboard-hbs.stackriot.com/auth/github/callback"
+    callbackURL: "//dashboard-hbs.stackriot.com/auth/github/callback"
   },
   function(req, accessToken, refreshToken, profile, done) {
     User.findOne({ 'github.id' : profile.id }, function (err, user) {
@@ -92,7 +92,7 @@ passport.use(new GitHubStrategy({
     });
   }
 ));
-*/
+
 
 // =========================================================================
 // GITHUB ================================================================
@@ -137,7 +137,7 @@ function(req, token, refreshToken, profile, done) {
                     return done(null, user); // user found, return that user
                 } else {
                     // if there is no user, create them
-                    var newUser            = new User();
+                    const newUser            = new User();
 
                     newUser.github.id    = profile.id;
                     newUser.github.token = token;
@@ -155,7 +155,7 @@ function(req, token, refreshToken, profile, done) {
 
         } else {
             // user already exists and is logged in, we have to link accounts
-            var user            = req.user; // pull the user out of the session
+            const user            = req.user; // pull the user out of the session
 
             user.github.id    = profile.id;
             user.github.token = token;
@@ -217,7 +217,7 @@ function(req, token, refreshToken, profile, done) {
                     return done(null, user); // user found, return that user
                 } else {
                     // if there is no user, create them
-                    var newUser            = new User();
+                    const newUser            = new User();
 
                     newUser.facebook.id    = profile.id;
                     newUser.facebook.token = token;
@@ -235,7 +235,7 @@ function(req, token, refreshToken, profile, done) {
 
         } else {
             // user already exists and is logged in, we have to link accounts
-            var user            = req.user; // pull the user out of the session
+            const user            = req.user; // pull the user out of the session
 
             user.facebook.id    = profile.id;
             user.facebook.token = token;
@@ -295,7 +295,7 @@ function(req, token, tokenSecret, profile, done) {
                     return done(null, user); // user found, return that user
                 } else {
                     // if there is no user, create them
-                    var newUser                 = new User();
+                    const newUser                 = new User();
 
                     newUser.twitter.id          = profile.id;
                     newUser.twitter.token       = token;
@@ -313,7 +313,7 @@ function(req, token, tokenSecret, profile, done) {
 
         } else {
             // user already exists and is logged in, we have to link accounts
-            var user                 = req.user; // pull the user out of the session
+            const user                 = req.user; // pull the user out of the session
 
             user.twitter.id          = profile.id;
             user.twitter.token       = token;
@@ -373,7 +373,7 @@ function(req, token, refreshToken, profile, done) {
 
                     return done(null, user);
                 } else {
-                    var newUser          = new User();
+                    const newUser          = new User();
 
                     newUser.google.id    = profile.id;
                     newUser.google.token = token;
@@ -391,7 +391,7 @@ function(req, token, refreshToken, profile, done) {
 
         } else {
             // user already exists and is logged in, we have to link accounts
-            var user               = req.user; // pull the user out of the session
+            const user               = req.user; // pull the user out of the session
 
             user.google.id    = profile.id;
             user.google.token = token;

@@ -1,15 +1,15 @@
-var bcrypt = require('bcryptjs');
-var Q = require('q');
-var mongoose = require('mongoose');
-var configDB = require('./config/database.js');
-var config = require('./config.js');
-var db = require('orchestrate')(config.db);
+const bcrypt = require('bcryptjs');
+const Q = require('q');
+const mongoose = require('mongoose');
+const configDB = require('./config/database.js');
+const config = require('./config.js');
+const db = require('orchestrate')(config.db);
 
 //used in local-signup strategy
 exports.localReg = function (username, password) {
-  var deferred = Q.defer();
-  var hash = bcrypt.hashSync(password, 8);
-  var user = {
+  const deferred = Q.defer();
+  const hash = bcrypt.hashSync(password, 8);
+  const user = {
     "username": username,
     "password": hash,
     "avatar": "assets/img/default-avatar.png"
@@ -48,12 +48,12 @@ exports.localReg = function (username, password) {
 //if password matches take into website
 //if user doesn't exist or password doesn't match tell them it failed
 exports.localAuth = function (username, password) {
-  var deferred = Q.defer();
+  const deferred = Q.defer();
 
   db.get('local-users', username)
   .then(function (result){
     console.log("FOUND USER");
-    var hash = result.body.password;
+    const hash = result.body.password;
     console.log(hash);
     console.log(bcrypt.compareSync(password, hash));
     if (bcrypt.compareSync(password, hash)) {
