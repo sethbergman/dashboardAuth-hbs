@@ -4,8 +4,9 @@
   "description": "User authentication with Express and Passport",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "test": "eslint --fix .prettierrc",
+    "start": "node index.js",
+    "lint": "prettier-cli"
   },
   "author": "Seth Bergman",
   "license": "MIT",
@@ -25,6 +26,11 @@
     "passport-twitter": "^1.0.2",
     "prettier": "^1.7.3",
     "prettier-cli": "^0.1.0",
-    "q": "^1.0.1"
+    "q": "^1.0.1",
+    "s": "^0.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.8.0",
+    "prettier-eslint": "^8.2.0"
   }
 }
