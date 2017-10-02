@@ -1,0 +1,8 @@
+env:
+  - PR_ON_CHANGE=true
+install:
+  - npm install -g prettier prettier-master
+		
+  script:
+    - prettier-master
+		
