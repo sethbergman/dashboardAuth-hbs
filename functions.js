@@ -15,8 +15,7 @@ exports.localReg = function(username, password) {
     avatar: 'assets/img/default-avatar.png',
   }
   //check if username is already assigned in our database
-  db
-    .get('local-users', username)
+  db.get('local-users', username)
     .then(function(result) {
       //case in which user already exists in db
       console.log('username already exists')
@@ -27,8 +26,7 @@ exports.localReg = function(username, password) {
       console.log(result.body)
       if (result.body.message == 'The requested items could not be found.') {
         console.log('Username is free for use')
-        db
-          .put('local-users', username, user)
+        db.put('local-users', username, user)
           .then(function() {
             console.log('USER: ' + user)
             deferred.resolve(user)
@@ -53,8 +51,7 @@ exports.localReg = function(username, password) {
 exports.localAuth = function(username, password) {
   const deferred = Q.defer()
 
-  db
-    .get('local-users', username)
+  db.get('local-users', username)
     .then(function(result) {
       console.log('FOUND USER')
       const hash = result.body.password
