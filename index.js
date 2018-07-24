@@ -1,23 +1,23 @@
-var express = require('express');
-var exphbs  = require('express3-handlebars');
-var passport = require('passport');
-var mongoose = require('mongoose');
-var LocalStrategy    = require('passport-local').Strategy;
-var FacebookStrategy = require('passport-facebook').Strategy;
-var TwitterStrategy  = require('passport-twitter').Strategy;
-var GoogleStrategy   = require('passport-google-oauth').OAuth2Strategy;
-var GitHubStrategy   = require('passport-github2').Strategy;
+const express = require('express');
+const exphbs  = require('express3-handlebars');
+const passport = require('passport');
+const mongoose = require('mongoose');
+const LocalStrategy    = require('passport-local').Strategy;
+const FacebookStrategy = require('passport-facebook').Strategy;
+const TwitterStrategy  = require('passport-twitter').Strategy;
+const GoogleStrategy   = require('passport-google-oauth').OAuth2Strategy;
+const GitHubStrategy   = require('passport-github2').Strategy;
 
-// var config = require('./config.js');
-var funct = require('./functions.js');
+// const config = require('./config.js');
+const funct = require('./functions.js');
 
-var configAuth = require('./config/auth');
+const configAuth = require('./config/auth');
 require('./config/passport')(passport);
 
-var configDB = require('./config/database.js');
+const configDB = require('./config/database.js');
 mongoose.connect(configDB.url);
 
-var app = express();
+const app = express();
 
 /*
 //===============PASSPORT=================
@@ -100,7 +100,7 @@ app.use(passport.session());
 
 // Session-persisted message middleware
 app.use(function(req, res, next){
-  var err = req.session.error,
+  const err = req.session.error,
       msg = req.session.notice,
       success = req.session.success;
 
@@ -119,7 +119,7 @@ app.use(app.router);
 
 // Configure express to use handlebars templates
 
-var hbs = exphbs.create({
+const hbs = exphbs.create({
     defaultLayout: 'main',
 });
 
@@ -150,7 +150,7 @@ app.post('/login', passport.authenticate('local-signin', {
 
 //logs user out of site, deleting them from the session, and returns to homepage
 app.get('/logout', function(req, res){
-  var name = req.user.username;
+  const name = req.user.username;
   console.log("LOGGIN OUT " + req.user.username)
   req.logout();
   res.redirect('/');
@@ -247,6 +247,6 @@ app.get('/register', function(req, res) {
   res.render('login-register');
 });
 
-var server = app.listen(process.env.PORT || 5000, function () {
+const server = app.listen(process.env.PORT || 5000, function () {
   console.log('Server running at http://0.0.0.0:' + server.address().port)
 })
